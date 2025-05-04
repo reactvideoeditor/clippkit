@@ -1,5 +1,5 @@
 {
-  "name": "eo-n",
+  "name": "clippkit",
   "private": true,
   "scripts": {
     "build": "turbo build",
