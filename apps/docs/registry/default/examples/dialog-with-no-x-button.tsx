@@ -35,7 +35,7 @@ export default function DialogWithNoXButton() {
             <Input
               id="email"
               autoComplete="off"
-              placeholder="eo-n@gmail.com"
+              placeholder="hello@clippkit.com"
               className="col-span-3"
             />
           </div>

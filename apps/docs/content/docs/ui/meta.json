@@ -3,5 +3,11 @@
   "description": "Components",
   "icon": "Component",
   "root": true,
-  "pages": ["---Getting Started---", "index", "installation", "dark-mode", "---Components---", "...(components)"]
+  "pages": [
+    "---Getting Started---",
+    "index",
+    "installation",
+    "---Components---",
+    "...(components)"
+  ]
 }

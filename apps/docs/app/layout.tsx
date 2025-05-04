@@ -121,7 +121,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           }}
           search={{
             links: [
-              ["Introduction", "/docs/ui"],
+              ["What is Clippkit?", "/docs/ui"],
               ["Installtion", "/docs/ui/installation"],
               ["Components", "/docs/ui/accordion"],
             ],

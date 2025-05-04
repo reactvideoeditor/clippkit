@@ -1,6 +1,6 @@
 {
-  "name": "eo-n/ui",
-  "short_name": "eo-n/ui",
+  "name": "clippkit/ui",
+  "short_name": "clippkit/ui",
   "description": "Accessible and customizable components built with Tailwind and Shadcn.",
   "start_url": "/",
   "display": "standalone",
@@ -18,4 +18,4 @@
       "type": "image/png"
     }
   ]
-} 
+}

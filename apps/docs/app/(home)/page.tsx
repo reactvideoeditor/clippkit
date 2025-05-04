@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import RveLogo from "@/public/images/logos/rve-logo.svg";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -8,18 +10,18 @@ import { LineDecorator } from "@/components/line-decorator";
 export default function HomePage() {
   return (
     <main className="flex h-full flex-col">
-      <div className="max-w-fd-container mx-auto flex h-full w-full items-center px-3">
+      <div className="max-w-fd-container mx-auto flex h-full items-center px-3">
         <div className="relative flex h-full w-full flex-col items-center justify-center gap-4 sm:gap-6">
           <LineDecorator
             orientation="vertical"
             className="absolute bottom-0 left-[15%] -z-20 mask-y-from-80% duration-1300"
           />
           <LineDecorator className="mr-auto mask-x-from-90% duration-1300" />
-          <h1 className="from-foreground text-center text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-6xl lg:leading-[1.1]">
-            Craft Your Component Library
+          <h1 className="from-foreground max-w-2xl text-center text-4xl leading-tight font-light tracking-tight sm:text-5xl md:text-6xl lg:leading-[1.1]">
+            The Component Library for Video Creation
           </h1>
           <LineDecorator className="ml-auto mask-x-from-90% duration-1300" />
-          <p className="text-muted-foreground max-w-sm text-center text-sm font-normal tracking-tight sm:max-w-2xl sm:text-lg md:max-w-3xl lg:max-w-4xl">
+          <p className="text-muted-foreground max-w-sm text-center text-sm font-normal tracking-tight sm:max-w-2xl sm:text-lg md:max-w-3xl lg:max-w-xl">
             {siteConfig.description}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
@@ -52,16 +54,23 @@ export default function HomePage() {
       </div>
       <footer className="flex h-16 items-center justify-center">
         <div className="max-w-fd-container w-fit px-3">
-          <p className="text-muted-foreground text-sm font-medium tracking-tight">
-            Built by{" "}
+          <p className="text-muted-foreground flex items-center gap-1.5 text-sm font-medium tracking-tight">
+            Brought to you by{" "}
             <Link
               href="https://www.reactvideoeditor.com/"
               target="_blank"
-              className="text-foreground underline-offset-4 transition-colors hover:underline"
+              className="text-foreground inline-flex items-center gap-1 font-medium underline-offset-4 transition-colors hover:underline"
               prefetch
             >
-              RVE.
+              RVE
             </Link>
+            <Image
+              src={RveLogo}
+              alt="RVE Logo"
+              width={16}
+              height={16}
+              className="inline-block"
+            />
           </p>
         </div>
       </footer>
