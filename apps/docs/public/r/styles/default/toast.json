@@ -5,7 +5,7 @@
     "@base-ui-components/react"
   ],
   "registryDependencies": [
-    "https://eo-n.vercel.app/r/button"
+    "https://clippkit.com/r/button"
   ],
   "files": [
     {

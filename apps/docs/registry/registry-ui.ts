@@ -368,7 +368,7 @@ export const ui: Registry = [
     name: "toast",
     type: "registry:ui",
     dependencies: ["@base-ui-components/react"],
-    registryDependencies: ["https://eo-n.vercel.app/r/button"],
+    registryDependencies: ["https://clippkit.com/r/button"],
     files: [
       {
         path: "ui/toast.tsx",
