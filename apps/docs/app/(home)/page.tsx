@@ -53,14 +53,14 @@ export default function HomePage() {
       <footer className="flex h-16 items-center justify-center">
         <div className="max-w-fd-container w-fit px-3">
           <p className="text-muted-foreground text-sm font-medium tracking-tight">
-            Made with <span className="text-red-500">♥</span> by{" "}
+            Built by{" "}
             <Link
-              href="https://github.com/aeonzz"
+              href="https://www.reactvideoeditor.com/"
               target="_blank"
               className="text-foreground underline-offset-4 transition-colors hover:underline"
               prefetch
             >
-              aeonzz.
+              RVE.
             </Link>
           </p>
         </div>

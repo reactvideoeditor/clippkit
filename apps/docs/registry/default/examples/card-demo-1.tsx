@@ -18,11 +18,14 @@ export default function CardDemo1() {
   return (
     <Card className="max-w-md shadow-none">
       <CardHeader>
-        <CardTitle>Aeonz</CardTitle>
+        <CardTitle>Sam Bowen Hughes</CardTitle>
         <CardDescription>Frontend Developer</CardDescription>
         <CardAction>
           <Avatar>
-            <AvatarImage src="https://github.com/aeonzz.png" alt="@aeonz" />
+            <AvatarImage
+              src="https://github.com/reactvideoeditor.png"
+              alt="@aeonz"
+            />
             <AvatarFallback>AE</AvatarFallback>
           </Avatar>
         </CardAction>

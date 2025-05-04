@@ -39,12 +39,12 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "aeonz",
-      url: "https://christian-aeonzz.vercel.app/",
+      name: "RVE",
+      url: "https://www.reactvideoeditor.com/",
     },
   ],
-  creator: "aeonz",
-  publisher: "aeonz",
+  creator: "RVE",
+  publisher: "RVE",
   robots: {
     index: true,
     follow: true,

@@ -3,11 +3,6 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { ComponentCard } from "@/components/component-card";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/default/ui/avatar";
 import { Button, buttonVariants } from "@/registry/default/ui/button";
 import {
   PreviewCard,
@@ -22,26 +17,22 @@ export default function PreviewCardCard() {
         <PreviewCardTrigger
           render={
             <Button variant="link" className="p-0">
-              @Aeonzz
+              RVE
             </Button>
           }
         />
         <PreviewCardContent className="flex w-80 items-start gap-3">
-          <Avatar className="size-10">
-            <AvatarImage src="https://github.com/aeonzz.png" alt="@aeonzz" />
-            <AvatarFallback>AE</AvatarFallback>
-          </Avatar>
           <div className="flex w-full flex-col gap-0.5">
-            <p className="text-sm font-semibold">@Aeonzz</p>
-            <p className="text-sm">Innovating in reverse.</p>
+            <p className="text-sm font-semibold">RVE</p>
+            <p className="text-sm">React Video Editor</p>
             <Link
               className={cn(
                 buttonVariants({ variant: "secondary", size: "sm" }),
                 "mt-2"
               )}
-              href="https://github.com/aeonzz"
+              href="https://www.reactvideoeditor.com/"
             >
-              Follow
+              RVE
             </Link>
           </div>
         </PreviewCardContent>

@@ -4,7 +4,7 @@ Allow: /
 Crawl-delay: 10
 
 # Sitemap location
-Sitemap: https://christian-aeonzz.vercel.app/sitemap.xml
+Sitemap: https://clippkit.com/sitemap.xml
 
 # Specific rules for major search engines
 User-agent: Googlebot
