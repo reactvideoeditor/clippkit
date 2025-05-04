@@ -6,8 +6,6 @@ import { createStore, Provider as JotaiProvider } from "jotai";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ToastProvider } from "@/registry/default/ui/toast";
 
-import { ReactScanProvider } from "./react-scan-provider";
-
 const store = createStore();
 
 interface ProvidersProps extends RootProviderProps {

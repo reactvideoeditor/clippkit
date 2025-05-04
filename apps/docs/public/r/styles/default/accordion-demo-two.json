@@ -1,0 +1,12 @@
+{
+  "name": "accordion-demo-two",
+  "type": "registry:example",
+  "files": [
+    {
+      "path": "examples/accordion-demo-two.tsx",
+      "content": "import {\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n  AccordionTwo,\n} from \"../ui/accordion-two\";\n\nexport default function AccordionDemoTwo() {\n  return (\n    <AccordionTwo className=\"\">\n      <AccordionItem value=\"item-1\">\n        <AccordionTrigger>Is it accessible?</AccordionTrigger>\n        <AccordionContent>\n          Yes. It adheres to the WAI-ARIA design pattern and is fully keyboard\n          navigable. The component is built with proper focus management and\n          ARIA attributes for screen reader compatibility.\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-2\">\n        <AccordionTrigger>Is it styled?</AccordionTrigger>\n        <AccordionContent>\n          Yes. The component comes with default styling using Tailwind CSS\n          classes, but you can easily customize it to match your design system.\n          The animation is handled through CSS transitions for smooth open/close\n          interactions.\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-3\">\n        <AccordionTrigger>Is it responsive?</AccordionTrigger>\n        <AccordionContent>\n          Absolutely. The accordion adapts to different screen sizes and works\n          well on both desktop and mobile devices. The content area smoothly\n          expands and collapses regardless of the amount of content inside.\n        </AccordionContent>\n      </AccordionItem>\n    </AccordionTwo>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "pill-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "pill"
+  ],
+  "files": [
+    {
+      "path": "examples/pill-demo.tsx",
+      "content": "import { Pill } from \"@/registry/default/ui/pill\";\n\nexport default function PillDemo() {\n  return (\n    <div className=\"flex space-x-4\">\n      <Pill>Default</Pill>\n      <Pill variant=\"secondary\">Secondary</Pill>\n      <Pill variant=\"destructive\">Destructive</Pill>\n      <Pill variant=\"outline\">Outline</Pill>\n    </div>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
