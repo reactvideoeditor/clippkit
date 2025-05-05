@@ -14,13 +14,13 @@ export default function HomePage() {
         <div className="relative flex h-full w-full flex-col items-center justify-center gap-4 sm:gap-6">
           <LineDecorator
             orientation="vertical"
-            className="absolute bottom-0 left-[15%] -z-20 mask-y-from-80% duration-1300"
+            className="bg-decorator-line absolute bottom-0 left-[15%] -z-20 mask-y-from-80% duration-1300"
           />
-          <LineDecorator className="mr-auto mask-x-from-90% duration-1300" />
+          <LineDecorator className="bg-decorator-line mr-auto mask-x-from-90% duration-1300" />
           <h1 className="from-foreground max-w-2xl text-center text-4xl leading-tight font-light tracking-tight sm:text-5xl md:text-6xl lg:leading-[1.1]">
             The Component Library for Video Creation
           </h1>
-          <LineDecorator className="ml-auto mask-x-from-90% duration-1300" />
+          <LineDecorator className="bg-decorator-line ml-auto mask-x-from-90% duration-1300" />
           <p className="text-muted-foreground max-w-sm text-center text-sm font-normal tracking-tight sm:max-w-2xl sm:text-lg md:max-w-3xl lg:max-w-xl">
             {siteConfig.description}
           </p>
@@ -48,7 +48,7 @@ export default function HomePage() {
           </div>
           <LineDecorator
             orientation="vertical"
-            className="absolute top-0 right-[15%] -z-20 mask-y-from-90% duration-1300"
+            className="bg-decorator-line absolute top-0 right-[15%] -z-20 mask-y-from-90% duration-1300"
           />
         </div>
       </div>
