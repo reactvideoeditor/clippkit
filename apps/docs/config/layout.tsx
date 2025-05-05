@@ -32,10 +32,10 @@ export const baseOptions: BaseLayoutProps = {
       text: "Components",
       url: "/docs/ui/accordion",
     },
-    {
-      text: "Collections",
-      url: "/docs/collections",
-    },
+    // {
+    //   text: "Collections",
+    //   url: "/docs/collections",
+    // },
     {
       type: "icon",
       url: siteConfig.links.github,

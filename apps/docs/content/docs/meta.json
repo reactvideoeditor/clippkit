@@ -1,3 +1,6 @@
 {
-  "pages": ["ui", "blocks", "collections"]
+  "pages": [
+    "ui",
+    "blocks"
+  ]
 }

@@ -25,26 +25,30 @@ export default function HomePage() {
             {siteConfig.description}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-            <Link
-              href="/docs/ui"
-              prefetch
-              className={cn(
-                buttonVariants({ variant: "default" }),
-                "w-full max-w-xs"
-              )}
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/docs/ui/accordion"
-              prefetch
-              className={cn(
-                buttonVariants({ variant: "outline" }),
-                "w-full max-w-xs"
-              )}
-            >
-              Explore Components
-            </Link>
+            <div>
+              <Link
+                href="/docs/ui"
+                prefetch
+                className={cn(
+                  buttonVariants({ variant: "default" }),
+                  "w-full max-w-xs"
+                )}
+              >
+                Get Started
+              </Link>
+            </div>
+            <div>
+              <Link
+                href="/docs/ui/accordion"
+                prefetch
+                className={cn(
+                  buttonVariants({ variant: "outline" }),
+                  "w-full max-w-xs"
+                )}
+              >
+                Explore Components
+              </Link>
+            </div>
           </div>
           <LineDecorator
             orientation="vertical"
