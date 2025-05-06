@@ -60,7 +60,7 @@ export function CodeBlockWrapper({
       </CollapsibleContent>
       <div
         className={cn(
-          "absolute flex items-center justify-center bg-linear-to-b from-background/10 to-background p-2",
+          "from-background/10 to-background absolute flex items-center justify-center bg-linear-to-b p-2",
           open ? "inset-x-0 bottom-0 h-12" : "inset-0"
         )}
       >

@@ -119,13 +119,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem: true,
             disableTransitionOnChange: true,
           }}
-          search={{
-            links: [
-              ["What is Clippkit?", "/docs/ui"],
-              ["Installtion", "/docs/ui/installation"],
-              ["Components", "/docs/ui/accordion"],
-            ],
-          }}
         >
           {children}
         </Providers>

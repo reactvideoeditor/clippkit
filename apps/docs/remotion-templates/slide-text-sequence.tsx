@@ -1,14 +1,3 @@
-/**
- * Free Remotion Template Component
- * ---------------------------------
- * This template is free to use in your projects!
- * Credit appreciated but not required.
- *
- * Created by the team at https://www.reactvideoeditor.com
- *
- * Happy coding and building amazing videos! 🎉
- */
-
 "use client";
 
 import { spring, useCurrentFrame, useVideoConfig } from "remotion";

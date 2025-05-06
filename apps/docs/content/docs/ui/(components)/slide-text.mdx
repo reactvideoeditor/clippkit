@@ -1,0 +1,216 @@
+---
+title: Sliding Text
+description: A Remotion component that animates text sliding in with a spring effect.
+preview: true
+---
+
+<PlayerCard templateName="slide-text-sequence" />
+
+## Installation
+
+There are two ways to install the `SlideText` component.
+
+### CLI (Recommended)
+
+This command will fetch the component and place it in your project (e.g., `components/ui/slide-text-sequence.tsx` or as configured in your `components.json`):
+
+```package-install
+npx shadcn@latest add "https://eo-n.vercel.app/r/slide-text-sequence"
+```
+
+After running the command, you can proceed to the [Usage](#usage) section.
+
+### Manual
+
+<Steps>
+
+  <Step>
+    Create a new file, for example, at `src/components/slide-text-sequence.tsx` (or your preferred location) and paste the following code into it.
+
+    ```tsx title="src/components/slide-text-sequence.tsx"
+    "use client";
+
+    import { spring, useCurrentFrame, useVideoConfig } from "remotion";
+
+    interface SlideTextProps {
+      text?: string;
+      textColor?: string;
+      fontSize?: string;
+      slideDirection?: "left" | "right" | "top" | "bottom";
+      durationInFrames?: number;
+      initialOffset?: number;
+      damping?: number;
+      mass?: number;
+      stiffness?: number;
+    }
+
+    export default function SlideText({
+      text = "Sliding Text!",
+      textColor = "var(--foreground)",
+      fontSize = "4rem",
+      slideDirection = "left",
+      durationInFrames = 30,
+      initialOffset = 200,
+      damping = 12,
+      mass = 0.5,
+      stiffness = 100, // Default stiffness
+    }: SlideTextProps) {
+      const frame = useCurrentFrame();
+      const { fps } = useVideoConfig();
+
+      const opacity = spring({
+        frame,
+        fps,
+        from: 0,
+        to: 1,
+        durationInFrames,
+      });
+
+      const slideAnimation = spring({
+        frame,
+        fps,
+        from: initialOffset,
+        to: 0,
+        durationInFrames,
+        config: {
+          damping,
+          mass,
+          stiffness,
+        },
+      });
+
+      let transformStyle = "";
+      switch (slideDirection) {
+        case "left":
+          transformStyle = `translate(-50%, -50%) translateX(${slideAnimation}px)`;
+          break;
+        case "right":
+          transformStyle = `translate(-50%, -50%) translateX(${-slideAnimation}px)`;
+          break;
+        case "top":
+          transformStyle = `translate(-50%, -50%) translateY(${slideAnimation}px)`;
+          break;
+        case "bottom":
+          transformStyle = `translate(-50%, -50%) translateY(${-slideAnimation}px)`;
+          break;
+        default:
+          transformStyle = `translate(-50%, -50%) translateX(${slideAnimation}px)`;
+      }
+
+      return (
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: transformStyle,
+            width: "100%",
+            textAlign: "center",
+          }}
+        >
+          <h1
+            style={{
+              opacity,
+              color: textColor,
+              fontSize: fontSize,
+              fontWeight: "bold",
+            }}
+          >
+            {text}
+          </h1>
+        </div>
+      );
+    }
+    ```
+
+  </Step>
+  
+  <Step>Update the import paths in your Remotion compositions if you placed the file in a different location than shown in the usage examples.</Step>
+
+</Steps>
+
+## Usage
+
+Once the `SlideText` component is added to your project (either via CLI or Manually), you can integrate it into your Remotion project by importing it and defining a `Composition`.
+
+<Callout title="Prerequisite">
+  Ensure you have a Remotion project set up. If not, please refer to the
+  [Remotion documentation](https://www.remotion.dev/docs/) to get started.
+</Callout>
+
+**Define a Composition:**
+
+In your Remotion project\'s entry file (commonly `src/Root.tsx` or `src/index.ts`), import `SlideText` and define a `Composition`.
+
+```tsx title="src/Root.tsx (or equivalent)"
+// In your src/Root.tsx (or equivalent Remotion entry file)
+
+import { Composition } from "remotion";
+
+// Adjust the path based on where you installed/placed the component
+// e.g., if using shadcn CLI, it might be '~/components/ui/slide-text-sequence'
+// e.g., if manually placed, it could be './components/slide-text-sequence'
+import SlideText from "./templates/slide-text-sequence";
+
+export const MyVideo: React.FC = () => {
+  return (
+    <>
+      <Composition
+        id="SlideTextIntro"
+        component={SlideText} // The component to render
+        durationInFrames={150} // Total duration for this specific composition
+        fps={30}
+        width={1280}
+        height={720}
+        // Pass props to the SlideText component via defaultProps
+        defaultProps={{
+          text: "Hello Remotion!",
+          textColor: "tomato",
+          fontSize: "5rem",
+          slideDirection: "bottom",
+          durationInFrames: 45, // Animation duration for SlideText
+          initialOffset: 150,
+          damping: 15,
+          mass: 0.8,
+          stiffness: 110,
+        }}
+      />
+      {/* You can define more compositions here */}
+    </>
+  );
+};
+```
+
+**Explanation:**
+
+- **`import SlideText from "./templates/slide-text-sequence";`**: This line imports your `SlideText` component. **Adjust the path** according to where the `slide-text-sequence.tsx` file is located in your project. If you used the `npx shadcn@latest add` command, it might be in a path like `~/components/ui/slide-text-sequence`.
+- **`<Composition ... />`**: This Remotion component is essential. It registers your animation with Remotion.
+  - `id`: A unique identifier for this animation sequence.
+  - `component`: Set to `SlideText` to render your component.
+  - `durationInFrames`, `fps`, `width`, `height`: Standard Remotion composition settings.
+  - `defaultProps`: This is how you pass the properties (like `text`, `textColor`, etc.) to your `SlideText` component. These are the props defined in the [API Reference](#api-reference).
+
+<Callout title="Key Remotion Concept: Composition">
+  The `Composition` component is fundamental in Remotion. It defines a distinct
+  video or animation sequence. You can have multiple `Composition` components in
+  your `MyVideo` (or `Root`) component, and Remotion Studio will allow you to
+  select which one to work on or render.
+</Callout>
+
+This setup makes the `SlideTextIntro` composition available in Remotion Studio for previewing and rendering, using the `SlideText` component with the specified `defaultProps`.
+
+## API Reference
+
+The component exported as `SlideText` (e.g., from `apps/docs/remotion-templates/slide-text-sequence.tsx` or your project's component path) accepts the following props to customize its animation and appearance:
+
+| Prop               | Type                                     | Default Value       | Description                                                                             |
+| ------------------ | ---------------------------------------- | ------------------- | --------------------------------------------------------------------------------------- |
+| `text`             | `string`                                 | "Sliding Text!"     | The text content to display.                                                            |
+| `textColor`        | `string`                                 | "var(--foreground)" | The color of the text. Accepts any valid CSS color value.                               |
+| `fontSize`         | `string`                                 | "4rem"              | The font size of the text. Accepts any valid CSS font-size value.                       |
+| `slideDirection`   | `"left" \| "right" \| "top" \| "bottom"` | "left"              | The direction from which the text slides in.                                            |
+| `durationInFrames` | `number`                                 | 30                  | The duration of the slide and opacity animation in frames.                              |
+| `initialOffset`    | `number`                                 | 200                 | The initial offset (in pixels) from which the text starts sliding.                      |
+| `damping`          | `number`                                 | 12                  | The damping of the spring animation. Affects how quickly the oscillation dies out.      |
+| `mass`             | `number`                                 | 0.5                 | The mass of the spring animation. Affects the bounciness.                               |
+| `stiffness`        | `number`                                 | 100                 | The stiffness of the spring animation. Affects the spring\'s resistance to deformation. |

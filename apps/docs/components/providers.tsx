@@ -1,25 +1,42 @@
 "use client";
 
-import { RootProvider, type RootProviderProps } from "fumadocs-ui/provider";
+import type { ComponentProps } from "react";
+import { RootProvider } from "fumadocs-ui/provider";
 import { createStore, Provider as JotaiProvider } from "jotai";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import type { ThemeProviderProps as NextThemesProviderProps } from "next-themes";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ToastProvider } from "@/registry/default/ui/toast";
 
 const store = createStore();
 
-interface ProvidersProps extends RootProviderProps {
+// Get props from RootProvider, excluding 'children' as we define it ourselves.
+type FumadocsRootProviderProps = Omit<
+  ComponentProps<typeof RootProvider>,
+  "children"
+>;
+
+interface ProvidersProps extends FumadocsRootProviderProps {
   children: React.ReactNode;
+  theme: NextThemesProviderProps;
+  // Any other props will be passed to FumadocsRootProviderProps
 }
 
-export function Providers({ children, ...props }: ProvidersProps) {
+export function Providers({
+  children,
+  theme,
+  ...rootProviderProps
+}: ProvidersProps) {
   return (
-    <ToastProvider richColors>
-      <RootProvider {...props}>
-        <JotaiProvider store={store}>
-          <TooltipProvider>{children}</TooltipProvider>
-        </JotaiProvider>
-      </RootProvider>
-    </ToastProvider>
+    <NextThemesProvider {...theme}>
+      <ToastProvider richColors>
+        <RootProvider {...rootProviderProps}>
+          <JotaiProvider store={store}>
+            <TooltipProvider>{children}</TooltipProvider>
+          </JotaiProvider>
+        </RootProvider>
+      </ToastProvider>
+    </NextThemesProvider>
   );
 }

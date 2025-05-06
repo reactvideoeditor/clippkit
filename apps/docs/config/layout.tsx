@@ -32,10 +32,6 @@ export const baseOptions: BaseLayoutProps = {
       text: "Components",
       url: "/docs/ui/accordion",
     },
-    // {
-    //   text: "Collections",
-    //   url: "/docs/collections",
-    // },
     {
       type: "icon",
       url: siteConfig.links.github,
@@ -48,12 +44,9 @@ export const baseOptions: BaseLayoutProps = {
 
 export const docsOptions: DocsLayoutProps = {
   ...baseOptions,
-  nav: {
-    ...baseOptions.nav,
-    footer: null,
-  },
   tree: source.pageTree,
   sidebar: {
-    footer: null,
+    tabs: false,
+    className: "[&_[data-radix-scroll-area-viewport]]:pt-[33px]",
   },
 };
