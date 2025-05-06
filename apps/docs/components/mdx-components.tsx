@@ -20,6 +20,7 @@ import { DataAttributesTable } from "@/components/data-attributes-table";
 import { GithubInfo } from "@/components/github-info";
 import { Kbd } from "@/components/kbd";
 import { KeyboardShortcutsTable } from "@/components/keyboard-shortcuts-table";
+import { SequenceCard } from "@/components/sequence-card";
 
 export function useMdxComponents(
   components: Partial<MDXComponents>
@@ -80,6 +81,7 @@ export function useMdxComponents(
     KeyboardShortcutsTable,
     GithubInfo,
     HomeIcon,
+    SequenceCard,
   };
 }
 
