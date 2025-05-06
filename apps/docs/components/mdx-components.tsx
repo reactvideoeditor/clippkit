@@ -1,5 +1,5 @@
 import type { Page } from "fumadocs-core/source";
-import { createTypeTable } from "fumadocs-typescript/ui";
+import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
 import { Heading } from "fumadocs-ui/components/heading";
 import { Step, Steps } from "fumadocs-ui/components/steps";
@@ -20,8 +20,6 @@ import { DataAttributesTable } from "@/components/data-attributes-table";
 import { GithubInfo } from "@/components/github-info";
 import { Kbd } from "@/components/kbd";
 import { KeyboardShortcutsTable } from "@/components/keyboard-shortcuts-table";
-
-const { AutoTypeTable } = createTypeTable();
 
 export function useMdxComponents(
   components: Partial<MDXComponents>

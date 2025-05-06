@@ -331,3 +331,8 @@
     @apply space-y-1 font-mono;
   }
 }
+
+/* Attempt to move Fumadocs sidebar toggle to the top */
+[data-fumadocs-layout="sidebar"] > footer {
+  order: -1;
+}

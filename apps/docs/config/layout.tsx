@@ -48,5 +48,12 @@ export const baseOptions: BaseLayoutProps = {
 
 export const docsOptions: DocsLayoutProps = {
   ...baseOptions,
+  nav: {
+    ...baseOptions.nav,
+    footer: null,
+  },
   tree: source.pageTree,
+  sidebar: {
+    footer: null,
+  },
 };
