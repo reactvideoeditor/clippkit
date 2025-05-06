@@ -4,17 +4,17 @@ import * as React from "react";
 
 import { RemotionIndex } from "@/registry/remotion-registry";
 
-import SequenceCardDisplay from "./sequence-card-display"; // Assuming sequence-card-display.tsx is in the same directory
+import PlayerCardDisplay from "./player-card-display"; // Assuming sequence-card-display.tsx is in the same directory
 
-interface SequenceCardContainerProps {
+interface PlayerCardContainerProps {
   templateName: string;
   sourceCode?: string; // This will be injected by rehype-component.ts
 }
 
-export function SequenceCard({
+export function PlayerCard({
   templateName,
   sourceCode,
-}: SequenceCardContainerProps) {
+}: PlayerCardContainerProps) {
   // Access the Remotion registry, assuming it's at Index.remotion
   // You'll need to define this structure in your registry.
   // Example of what an entry in Index.remotion[templateName] should look like:
@@ -57,7 +57,7 @@ export function SequenceCard({
   }
 
   return (
-    <SequenceCardDisplay
+    <PlayerCardDisplay
       name={name as string}
       subtitle={subtitle as string}
       component={component as React.ComponentType}

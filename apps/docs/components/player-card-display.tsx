@@ -5,7 +5,7 @@ import { Player } from "@remotion/player";
 // Removed Copy and Check icon imports as the copy button isn't here currently
 // import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
-interface SequenceCardProps {
+interface PlayerCardProps {
   name: string;
   subtitle: string;
   component: React.ComponentType;
@@ -16,7 +16,7 @@ interface SequenceCardProps {
   isNew?: boolean;
 }
 
-export default function SequenceCardDisplay({
+export default function PlayerCardDisplay({
   name,
   subtitle,
   component,
@@ -25,8 +25,8 @@ export default function SequenceCardDisplay({
   slug,
   sourceCode,
   isNew,
-}: SequenceCardProps) {
-  console.log("SequenceCardDisplay Props:", {
+}: PlayerCardProps) {
+  console.log("PlayerCardDisplay Props:", {
     name,
     subtitle,
     slug,
@@ -37,7 +37,7 @@ export default function SequenceCardDisplay({
   });
 
   return (
-    <div className="group border-border bg-card hover:border-primary/70 relative overflow-hidden rounded-xl border transition-all hover:shadow-lg hover:shadow-blue-500/10">
+    <div className="group border-border bg-card hover:border-primary/20 relative overflow-hidden rounded-xl border transition-all hover:shadow-lg hover:shadow-blue-500/10">
       {/* Removed Tooltip and Copy button for now to simplify, can be added back if sourceCode is successfully passed */}
 
       <div className="aspect-video w-full overflow-hidden object-cover">

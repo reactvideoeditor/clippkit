@@ -6,6 +6,43 @@ links:
   doc: https://base-ui.com/react/components/accordion#api-reference
 ---
 
-<SequenceCard templateName="slide-text-sequence" />
+<PlayerCard templateName="slide-text-sequence" />
 
 ## Player
+
+## API Reference
+
+The `<PlayerCard>` for the `slide-text-sequence` template accepts the following props to customize the animation and appearance:
+
+| Prop               | Type                                     | Default Value       | Description                                                                            |
+| ------------------ | ---------------------------------------- | ------------------- | -------------------------------------------------------------------------------------- |
+| `text`             | `string`                                 | "Sliding Text!"     | The text content to display.                                                           |
+| `textColor`        | `string`                                 | "var(--foreground)" | The color of the text. Accepts any valid CSS color value.                              |
+| `fontSize`         | `string`                                 | "4rem"              | The font size of the text. Accepts any valid CSS font-size value.                      |
+| `slideDirection`   | `"left" \| "right" \| "top" \| "bottom"` | "left"              | The direction from which the text slides in.                                           |
+| `durationInFrames` | `number`                                 | 30                  | The duration of the slide and opacity animation in frames.                             |
+| `initialOffset`    | `number`                                 | 200                 | The initial offset (in pixels) from which the text starts sliding.                     |
+| `damping`          | `number`                                 | 12                  | The damping of the spring animation. Affects how quickly the oscillation dies out.     |
+| `mass`             | `number`                                 | 0.5                 | The mass of the spring animation. Affects the bounciness.                              |
+| `stiffness`        | `number`                                 | 100                 | The stiffness of the spring animation. Affects the spring's resistance to deformation. |
+
+### Example Usage
+
+You can customize the player by passing props to the `PlayerCard` component like so:
+
+```mdx
+<PlayerCard
+  templateName="slide-text-sequence"
+  text="Hello World!"
+  textColor="blue"
+  fontSize="3rem"
+  slideDirection="right"
+  durationInFrames={60}
+  initialOffset={100}
+  damping={10}
+  mass={1}
+  stiffness={120}
+/>
+```
+
+This will render the "Hello World!" text sliding in from the right, with a blue color, a font size of 3rem, and modified animation physics.

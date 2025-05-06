@@ -13,7 +13,29 @@
 
 import { spring, useCurrentFrame, useVideoConfig } from "remotion";
 
-export default function SlideText() {
+interface SlideTextProps {
+  text?: string;
+  textColor?: string;
+  fontSize?: string;
+  slideDirection?: "left" | "right" | "top" | "bottom";
+  durationInFrames?: number;
+  initialOffset?: number;
+  damping?: number;
+  mass?: number;
+  stiffness?: number;
+}
+
+export default function SlideText({
+  text = "Sliding Text!",
+  textColor = "var(--foreground)",
+  fontSize = "4rem",
+  slideDirection = "left",
+  durationInFrames = 30,
+  initialOffset = 200,
+  damping = 12,
+  mass = 0.5,
+  stiffness = 100, // Default stiffness
+}: SlideTextProps) {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -22,20 +44,39 @@ export default function SlideText() {
     fps,
     from: 0,
     to: 1,
-    durationInFrames: 30,
+    durationInFrames,
   });
 
-  const slideX = spring({
+  const slideAnimation = spring({
     frame,
     fps,
-    from: 200,
+    from: initialOffset,
     to: 0,
-    durationInFrames: 30,
+    durationInFrames,
     config: {
-      damping: 12,
-      mass: 0.5,
+      damping,
+      mass,
+      stiffness,
     },
   });
+
+  let transformStyle = "";
+  switch (slideDirection) {
+    case "left":
+      transformStyle = `translate(-50%, -50%) translateX(${slideAnimation}px)`;
+      break;
+    case "right":
+      transformStyle = `translate(-50%, -50%) translateX(${-slideAnimation}px)`;
+      break;
+    case "top":
+      transformStyle = `translate(-50%, -50%) translateY(${slideAnimation}px)`;
+      break;
+    case "bottom":
+      transformStyle = `translate(-50%, -50%) translateY(${-slideAnimation}px)`;
+      break;
+    default:
+      transformStyle = `translate(-50%, -50%) translateX(${slideAnimation}px)`;
+  }
 
   return (
     <div
@@ -43,7 +84,7 @@ export default function SlideText() {
         position: "absolute",
         top: "50%",
         left: "50%",
-        transform: `translate(-50%, -50%) translateX(${slideX}px)`,
+        transform: transformStyle,
         width: "100%",
         textAlign: "center",
       }}
@@ -51,12 +92,12 @@ export default function SlideText() {
       <h1
         style={{
           opacity,
-          color: "var(--foreground)",
-          fontSize: "4rem",
+          color: textColor,
+          fontSize: fontSize,
           fontWeight: "bold",
         }}
       >
-        Sliding Text!
+        {text}
       </h1>
     </div>
   );
