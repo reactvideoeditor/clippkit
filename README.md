@@ -1,6 +1,6 @@
 # Clippkit
 
-## Adding a New Component: A Cookbook Guide
+## Adding a New Component: A Cookbook Guide.
 
 Think of this documentation site like a **Cookbook**, and you want to add a new **Recipe** (your UI component). Here's how the different parts work together and the steps to add your own:
 
