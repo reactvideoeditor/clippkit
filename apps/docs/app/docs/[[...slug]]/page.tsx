@@ -47,7 +47,7 @@ export default async function DocPage(props: DocPageParams) {
     <DocsPage
       toc={page.data.toc}
       tableOfContent={{
-        style: "normal",
+        style: "clerk",
         single: false,
       }}
       full={page.data.full}
