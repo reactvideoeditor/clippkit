@@ -82,16 +82,6 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "dialog-demo",
-    type: "registry:example",
-    files: [
-      {
-        path: "examples/dialog-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "dialog-custom-close-button",
     type: "registry:example",
     files: [
