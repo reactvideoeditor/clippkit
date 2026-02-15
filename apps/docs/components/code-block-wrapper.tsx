@@ -11,7 +11,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { Button } from "@/registry/default/ui/button";
+
+import { Button } from "./ui/button";
 
 interface CodeBlockProps
   extends React.ComponentPropsWithoutRef<typeof Collapsible> {

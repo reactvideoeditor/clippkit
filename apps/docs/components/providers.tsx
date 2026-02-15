@@ -7,7 +7,6 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ThemeProviderProps as NextThemesProviderProps } from "next-themes";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { ToastProvider } from "@/registry/default/ui/toast";
 
 const store = createStore();
 
@@ -30,13 +29,11 @@ export function Providers({
 }: ProvidersProps) {
   return (
     <NextThemesProvider {...theme}>
-      <ToastProvider richColors>
-        <RootProvider {...rootProviderProps}>
-          <JotaiProvider store={store}>
-            <TooltipProvider>{children}</TooltipProvider>
-          </JotaiProvider>
-        </RootProvider>
-      </ToastProvider>
+      <RootProvider {...rootProviderProps}>
+        <JotaiProvider store={store}>
+          <TooltipProvider>{children}</TooltipProvider>
+        </JotaiProvider>
+      </RootProvider>
     </NextThemesProvider>
   );
 }

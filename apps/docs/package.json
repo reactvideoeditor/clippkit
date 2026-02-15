@@ -13,7 +13,6 @@
     "sitemap": "next-sitemap --config next-sitemap.config.cjs"
   },
   "dependencies": {
-    "@base-ui-components/react": "1.0.0-alpha.8",
     "@radix-ui/react-collapsible": "^1.1.3",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-label": "^2.1.2",

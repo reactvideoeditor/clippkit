@@ -6,11 +6,11 @@ import { rimraf } from "rimraf";
 import { Project, ScriptKind, SyntaxKind } from "ts-morph";
 import type { z } from "zod";
 
+import { fixImport } from "@/lib/registry";
+import { blocks } from "@/registry/registry-blocks";
 import { components } from "@/registry/registry-components";
 import { examples } from "@/registry/registry-examples";
 import { lib } from "@/registry/registry-lib";
-import { ui } from "@/registry/registry-ui";
-import { blocks } from "@/registry/registry-blocks";
 
 import { styles } from "../registry/registry-styles";
 import {
@@ -19,9 +19,13 @@ import {
   type Registry,
   type registryItemTypeSchema,
 } from "../registry/schema";
-import { fixImport } from "@/lib/registry";
 
-export const registry: Registry = [...ui, ...lib, ...examples, ...components, ...blocks];
+export const registry: Registry = [
+  ...lib,
+  ...examples,
+  ...components,
+  ...blocks,
+];
 
 const REGISTRY_PATH = path.join(process.cwd(), "public/r");
 
